@@ -1,0 +1,7 @@
+---
+title: "Über"
+---
+
+Dies ist eine kleine Demonstrationswebseite darüber wie ein Quarto-Projekt und `babelquarto` zusammen benutzt werden können um mehrsprachige Lehrmaterialen zu erstellen indem Quarto-Markdown-Dateien die Text und `R`-Code zusammenbringen.
+
+Diese Demonstration ist verfügbar in 🇬🇧, 🇩🇪 und 🇪🇸 als Beispiel-Sprachen.

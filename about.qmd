@@ -1,0 +1,7 @@
+---
+title: "About"
+---
+
+This is a small demo website for how a Quarto website project and `babelquarto` can be used to create multilingual teaching materials by writing Quarto markdown files that mix both markdown text and `R` code.
+
+This demo is setup to use 🇬🇧, 🇩🇪 and 🇪🇸 as example languages.

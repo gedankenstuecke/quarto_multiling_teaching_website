@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "extra_pages.html",
+    "href": "extra_pages.html",
+    "title": "Extra pages",
+    "section": "",
+    "text": "Extra pages need to be created in each of the available languages, e.g. extra_pages.qmd, extra_pages.de.qmd and extra_pages.es.qmd."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is a small demo website for how a Quarto website project and babelquarto can be used to create multilingual teaching materials by writing Quarto markdown files that mix both markdown text and R code.\nThis demo is setup to use 🇬🇧, 🇩🇪 and 🇪🇸 as example languages."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto_multiling_teaching_website",
+    "section": "",
+    "text": "This is a Quarto website, made using https://quarto.org/docs/websites.\nIt also includes Babelquarto for translatable pages.\n\n1 + 2\n\n[1] 3\n\n\nThis also allows creating R code, running it when using it locally, and displaying the output. For example, we can just run some raw R like above, or do more complex bits.\nLike: load some libraries first:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.0     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\n\n\nAttaching package: 'palmerpenguins'\n\nThe following objects are masked from 'package:datasets':\n\n    penguins, penguins_raw\n\n\nAnd then use them to plot some graphs:"
+  }
+]

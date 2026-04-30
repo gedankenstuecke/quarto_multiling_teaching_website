@@ -1,0 +1,42 @@
+---
+title: "quarto_multiling_teaching_website"
+---
+
+Esto es una página web de quarto, usando <https://quarto.org/docs/websites>.
+
+También incluye [Babelquarto para páginas traducibles](https://docs.ropensci.org/babelquarto/index.html).
+
+```{r}
+1 + 2
+```
+
+Esto permite crear codigo en `R`, executirlo en una computadora local, y mostrar la salida. Por ejemplo, podemos correr R basico como encima o usar cosas mas complicadas.
+
+Como: cargar unas bibliotecas:
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+Entonces, las usamos para crear visualizaciones:
+
+```{r}
+#| label: plot-penguins
+#| warning: false
+#| echo: false
+
+ggplot(penguins, 
+       aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
+```

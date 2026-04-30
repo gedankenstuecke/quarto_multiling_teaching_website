@@ -1,0 +1,6 @@
+---
+title: "Más páginas"
+format: html
+---
+
+más páginas necesitan ser creado por cada lengua que es disponible, por ejemplo `extra_pages.qmd`, `extra_pages.de.qmd` y `extra_pages.es.qmd`.

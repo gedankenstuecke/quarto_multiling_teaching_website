@@ -1,0 +1,42 @@
+---
+title: "quarto_multiling_teaching_website"
+---
+
+Dies ist eine Quarto-Webseite, erstellt mit <https://quarto.org/docs/websites>.
+
+Sie benutzt [Babelquarto für übersetzbare Seiten](https://docs.ropensci.org/babelquarto/index.html).
+
+```{r}
+1 + 2
+```
+
+Dies erlaubt es auch R-Code zu erstellen, ihn lokal laufen zu lassen, und die Ausgabe des Codes anzuzeigen. Zum Beispiel, wir können reinen R-Code wie oben erstellen, oder auch komplexere Varianten.
+
+Wie dies: Wir laden Programmbibiliotheken
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+Und nutzen sie dann um eine Visualisierung zu erstellen:
+
+```{r}
+#| label: plot-penguins
+#| warning: false
+#| echo: false
+
+ggplot(penguins, 
+       aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
+```

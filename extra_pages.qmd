@@ -1,0 +1,6 @@
+---
+title: "Extra pages"
+format: html
+---
+
+Extra pages need to be created in each of the available languages, e.g. `extra_pages.qmd`, `extra_pages.de.qmd` and `extra_pages.es.qmd`.

@@ -1,0 +1,7 @@
+---
+title: "Sobre"
+---
+
+Esto es una página para mostrar como Quarto y `babelquarto` funcionan juntos para crear materiales de la enseñanza por archívos que combinan textos y codigos en `R`. 
+
+Esta demostración es disponible en 🇬🇧, 🇩🇪 und 🇪🇸 como ejemplos.

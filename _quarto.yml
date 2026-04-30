@@ -1,0 +1,40 @@
+project:
+  type: website
+
+website:
+  site-url: https://example.com
+  title: "An example in Quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - extra_pages.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+babelquarto:
+  languagelinks: navbar
+  languagecodes:
+  - name: es
+    text: "Español"
+  - name: de
+    text: "Deutsch"
+  - name: en
+    text: "English"
+  mainlanguage: 'en'
+  languages: ['es', 'de']
+title-es: Un ejemplo en Quarto
+title-de: Ein Beispiel in Quarto
+description-es: description in es
+description-de: description in de
+author-es: author in es
+author-de: author in de
+lang: en
+

@@ -1,0 +1,6 @@
+---
+title: "Extra Seiten"
+format: html
+---
+
+Extra Seiten müssen für jede verfügbare Sprache angelegt werden, z.B. `extra_pages.qmd`, `extra_pages.de.qmd` und `extra_pages.es.qmd`.
