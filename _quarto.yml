@@ -10,6 +10,7 @@ website:
         text: Home
       - about.qmd
       - extra_pages.qmd
+      - pywikibot-examples.ipynb
 
 format:
   html:

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/pywikibot-examples.html" />
+<link rel="alternate" hreflang="es" href="/es/pywikibot-examples.es.html" />
+<link rel="alternate" hreflang="de" href="/de/pywikibot-examples.de.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>How to use pywikibot – An example in Quarto</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-73c880a72bf6022e65cfd02f19d274f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="styles.css">
+</head>
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">An example in Quarto</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links">
+<li><a class="dropdown-item" href="/de/pywikibot-examples.html" id="language-link-de">Deutsch</a></li>
+<li><a class="dropdown-item" href="/es/pywikibot-examples.html" id="language-link-es">Español</a></li>
+</ul>
+</div></li>
+<li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./extra_pages.html"> 
+<span class="menu-text">Extra pages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./pywikibot-examples.html" aria-current="page"> 
+<span class="menu-text">How to use <code>pywikibot</code></span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#getting-all-kenyan-politician-pages-based-on-category" id="toc-getting-all-kenyan-politician-pages-based-on-category" class="nav-link" data-scroll-target="#getting-all-kenyan-politician-pages-based-on-category">Getting all Kenyan politician pages (based on category)</a></li>
+  <li><a href="#getting-a-single-page" id="toc-getting-a-single-page" class="nav-link" data-scroll-target="#getting-a-single-page">Getting a single page</a></li>
+  <li><a href="#exploring-categories-a-page-belongs-to" id="toc-exploring-categories-a-page-belongs-to" class="nav-link" data-scroll-target="#exploring-categories-a-page-belongs-to">Exploring categories a page belongs to</a></li>
+  <li><a href="#authorship" id="toc-authorship" class="nav-link" data-scroll-target="#authorship">Authorship</a></li>
+  <li><a href="#exploring-contributors" id="toc-exploring-contributors" class="nav-link" data-scroll-target="#exploring-contributors">Exploring contributors</a></li>
+  </ul></nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">How to use <code>pywikibot</code>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><p>Load library, and check that your username was set (to create a unique user agent for API limits). Read from <code>user-config.py</code> in the same folder as the notebook if available, created by <code>pwb generate_user_files</code></p>
+<section id="setup" class="level2"><h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<div id="c2181fb0-2726-4a24-9ddd-2257a6e6824b" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pywikibot</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pywikibot.config.usernames</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>defaultdict(dict, {'wikipedia': {'en': 'Gedankenstuecke'}})</code></pre>
+</div>
+</div>
+<p>If you see a username for your language edition for Wikipedia you’re all set. Now we can start getting all pages for a given category.</p>
+</section><section id="getting-all-kenyan-politician-pages-based-on-category" class="level2"><h2 class="anchored" data-anchor-id="getting-all-kenyan-politician-pages-based-on-category">Getting all Kenyan politician pages (based on category)</h2>
+<p>Using <code>recurse=True</code> lets us also get files present in sub-categories if present. For the demo we use <code>Category:Kenyan_politicians</code> as the category of interest:</p>
+<div id="e7e46c24-b78b-47e1-9789-734e0bc8bddb" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>site <span class="op">=</span> pywikibot.Site(<span class="st">'en'</span>, <span class="st">'wikipedia'</span>) <span class="co"># select the wikimedia project we want to interact with</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>politician_pages <span class="op">=</span> [] <span class="co"># to store page names and handles after iterating over category</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>category <span class="op">=</span> pywikibot.Category(site, <span class="st">"Kenyan_politicians"</span>) <span class="co"># select category</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> category.articles(recurse<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    politician_pages.append(i)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</div>
+<div id="98acae50-f05d-4112-bf9d-a5b66fce3fd0" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are </span><span class="sc">{}</span><span class="st"> pages in the 'Kenyan politicians' category"</span>.<span class="bu">format</span>(<span class="bu">len</span>(politician_pages)))</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>There are 929 pages in the 'Kenyan politicians' category</code></pre>
+</div>
+</div>
+</section><section id="getting-a-single-page" class="level2"><h2 class="anchored" data-anchor-id="getting-a-single-page">Getting a single page</h2>
+<p>Let’s use a single page as an example to explore what else we can easily get from the API.</p>
+<div id="1610e741-88d9-42c2-ba21-ad32dde8c763" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>page <span class="op">=</span> politician_pages[<span class="dv">0</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>page.title()</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>'Abdilatif Abdalla'</code></pre>
+</div>
+</div>
+<p>We can now access the latest version of the article:</p>
+<div id="fc8f2407-36a3-4277-ac87-5980483d7fe6" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>page.text[:<span class="dv">2000</span>]</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>'{{short description|Kenyan writer and political activist}}\n{{Use dmy dates|date=April 2022}}\n\'\'\'Abdilatif Abdalla\'\'\' (born 1946 in [[Mombasa]]) is a Kenyan writer and political activist. He was imprisoned for his support of the [[Kenya People\'s Union]], and began writing poetry in [[solitary confinement]]. A collection of poems from this time were published as a book titled \'\'Sauti ya Dhiki\'\'{{efn|"Voice of Agony"}} (1973), which was awarded the [[Jomo Kenyatta Prize for Literature]].\n\n==Early life==\nAbdilatif Abdalla was born in [[Mombasa]], [[Kenya]], in 1946, where he was brought up by his grandfather Ahmad Basheikh bin Hussein. Abdalla attended school in [[Faza]], before undertaking further studies at the British Tutorial College. He began his political involvement after working for the Mombasa City Council as an assistant [[accountant]], writing the pamphlet \'\'Kenya Twendapi?\'\' (Eng: \'\'Kenya, Where Are We Headed\'\') in support of the [[Kenya People\'s Union]] in 1968.{{sfn |Akyeampong|Gates| 2012| pp=17-18}}&lt;ref name="Pambazuka"&gt;{{cite news|last1=wa Wanjiru|first1=Kimani|title=Abdilatif Abdalla: \'My poems gave me company\'|url=http://www.pambazuka.org/arts/abdilatif-abdalla-my-poems-gave-me-company|access-date=20 October 2016|work=Pambazuka News|date=14 October 2010}}&lt;/ref&gt;\n\n==Political imprisonment and writing==\nWhen the Kenyan Government of [[Jomo Kenyatta]] conducted a crackdown on KPU activists, Abdalla was imprisoned for conspiracy between 1969 and 1972. He was at first held in [[Kamiti Maximum Security Prison|Kamiti Prison]], and later in [https://kituochasheria.or.ke/shimo-la-tewa-mens-justice-centre/ Shimo la Tewa Prison], where he was kept in solitary confinement. It was while imprisoned that he wrote the poems that would be collected in the 1973 work \'\'Sauti ya Dhiki\'\', whose title translates to "Voice of Agony". These were written in the Mombasa version of the [[Swahili language]]{{sfn |Akyeampong|Gates| 2012| pp=17-18}} and published by his older broth'</code></pre>
+</div>
+</div>
+</section><section id="exploring-categories-a-page-belongs-to" class="level2"><h2 class="anchored" data-anchor-id="exploring-categories-a-page-belongs-to">Exploring categories a page belongs to</h2>
+<p>We can now see if or to which other category pages this page belongs, e.g. if we’d use this to expand our serach</p>
+<div id="9b0f098b-f6e3-4692-a42c-9a4d1c9b95aa" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> page.categories():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[en:Category:1946 births]]
+[[en:Category:Academic staff of Leipzig University]]
+[[en:Category:Academic staff of the University of Dar es Salaam]]
+[[en:Category:Articles with short description]]
+[[en:Category:BBC people]]
+[[en:Category:Kenyan male writers]]
+[[en:Category:Kenyan politicians]]
+[[en:Category:Kenyan writers]]
+[[en:Category:Living people]]
+[[en:Category:People associated with SOAS University of London]]
+[[en:Category:People from Mombasa]]
+[[en:Category:Short description is different from Wikidata]]
+[[en:Category:Swahili-language writers]]
+[[en:Category:Use dmy dates from April 2022]]</code></pre>
+</div>
+</div>
+</section><section id="authorship" class="level2"><h2 class="anchored" data-anchor-id="authorship">Authorship</h2>
+<p>To check how authorship for the current text status distributes across users we can do the following. Each tupel of the form <code>(1234, 50.0)</code> gives the authorship in character count (<code>1234</code>) and percentage of the article <code>(50.0</code>)</p>
+<div id="f762034c-cf6f-41bd-a1ee-8adffe3ce461" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>page.authorship()</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>{'Miyagawa': (2195, 52.0),
+ 'Gaudio': (759, 18.0),
+ '2A02:8070:D1AC:E500:D480:B9B7:2A33:B6F6': (295, 7.0),
+ 'Vysotsky': (253, 6.0),
+ 'IOHANNVSVERVS': (168, 4.0)}</code></pre>
+</div>
+</div>
+<p>Now we can check how many revisions there were:</p>
+<div id="cf1d72cb-d841-48fa-953f-3744eeba203f" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>page.revision_count()</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>46</code></pre>
+</div>
+</div>
+<p>We can also explore the different revisions, when they were made, by whom and the edit-comment that was left</p>
+<div id="6a506bf7-86ec-4de1-9bc7-eaecb259c0f2" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> page.revisions():</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="sc">{}</span><span class="st"> edited the article on </span><span class="sc">{}</span><span class="st"> with this edit comment: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i[<span class="st">'user'</span>], i[<span class="st">'timestamp'</span>], i[<span class="st">'comment'</span>]))</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Almaddy2022 edited the article on 2025-04-14T10:08:57Z with this edit comment: 
+Almaddy2022 edited the article on 2025-04-06T12:24:59Z with this edit comment: /* Political imprisonment and writing */ I have added links of Kimati Prison and Shimo la Tewa
+Inter&amp;anthro edited the article on 2024-08-23T20:59:25Z with this edit comment: mentioned and sourced in the article
+IOHANNVSVERVS edited the article on 2024-03-27T06:08:59Z with this edit comment: /* Political imprisonment and writing */ce
+IOHANNVSVERVS edited the article on 2024-03-27T06:08:39Z with this edit comment: /* References */
+IOHANNVSVERVS edited the article on 2024-03-27T06:07:52Z with this edit comment: /* Political imprisonment and writing */Voices of Agony
+IOHANNVSVERVS edited the article on 2024-03-27T06:06:57Z with this edit comment: /* Political imprisonment and writing */correct date
+IOHANNVSVERVS edited the article on 2024-03-27T06:05:52Z with this edit comment: copyedit lead
+IOHANNVSVERVS edited the article on 2024-03-27T05:51:44Z with this edit comment: /* External links */+Wikiquote
+96.106.43.35 edited the article on 2023-02-17T13:39:54Z with this edit comment: Undid revision 1139908556 by [[Special:Contributions/196.202.223.224|196.202.223.224]] ([[User talk:196.202.223.224|talk]])
+196.202.223.224 edited the article on 2023-02-17T13:39:38Z with this edit comment: added more detail
+JJMC89 bot III edited the article on 2023-02-08T12:22:49Z with this edit comment: Moving [[:Category:University of Dar es Salaam faculty]] to [[:Category:Academic staff of the University of Dar es Salaam]] per [[Wikipedia:Categories for discussion/Log/2023 January 29#Academic staff in Africa and Asia]]
+JJMC89 bot III edited the article on 2023-01-12T08:40:17Z with this edit comment: Moving [[:Category:Leipzig University faculty]] to [[:Category:Academic staff of Leipzig University]] per [[Wikipedia:Categories for discussion/Log/2023 January 3]]
+BrownHairedGirl edited the article on 2022-04-13T04:59:24Z with this edit comment: add {{[[Template:Use dmy dates|Use dmy dates]]}}
+SdkbBot edited the article on 2022-01-20T21:53:24Z with this edit comment: Removed [[MOS:OVERLINK|overlinked]] country wikilink and [[WP:GENFIX|general fixes]] ([[Wikipedia:Bots/Requests_for_approval/SdkbBot_2|task 2]])
+Citation bot edited the article on 2021-04-08T19:30:22Z with this edit comment: Removed parameters. | [[WP:UCB|Use this bot]]. [[WP:DBUG|Report bugs]]. | Suggested by Jonesey95 | via #UCB_webform 58/3000
+Simeon edited the article on 2020-07-17T08:36:04Z with this edit comment: Adding local [[Wikipedia:Short description|short description]]: "Kenyan writer and political activist", overriding Wikidata description "Kenyan poet and University teacher" ([[Wikipedia:Shortdesc helper|Shortdesc helper]])
+2A02:8070:D1AC:E500:D480:B9B7:2A33:B6F6 edited the article on 2020-03-30T09:55:02Z with this edit comment: /* Political imprisonment and writing */
+2A02:8070:D1AC:E500:D480:B9B7:2A33:B6F6 edited the article on 2020-03-30T09:54:34Z with this edit comment: inserted a new edited volume in the reference
+75.188.45.156 edited the article on 2020-02-11T19:16:54Z with this edit comment: /* Political imprisonment and writing */
+Jevansen edited the article on 2019-12-30T06:48:59Z with this edit comment: Moving from [[Category:People associated with SOAS, University of London]] to [[Category:People associated with SOAS University of London]] using [[c:Help:Cat-a-lot|Cat-a-lot]]
+Ser Amantio di Nicolao edited the article on 2019-11-21T22:43:44Z with this edit comment: Copying from [[Category:Kenyan writers]] to [[Category:Kenyan male writers]] using [[c:Help:Cat-a-lot|Cat-a-lot]]
+79.178.31.23 edited the article on 2018-05-03T13:48:10Z with this edit comment: /* Early life */
+InternetArchiveBot edited the article on 2017-06-25T03:16:07Z with this edit comment: Rescuing 1 sources and tagging 0 as dead. #IABot (v1.4beta3)
+Materialscientist edited the article on 2016-12-16T11:33:16Z with this edit comment: Reverted 1 edit by [[Special:Contributions/Abdiladif33|Abdiladif33]] identified as test/vandalism using [[WP:STiki|STiki]]
+Abdiladif33 edited the article on 2016-12-16T10:19:34Z with this edit comment: 
+Miyagawa edited the article on 2016-10-21T09:38:54Z with this edit comment: /* Political prisoner and writing */ Copyedit section title
+Miyagawa edited the article on 2016-10-20T20:48:54Z with this edit comment: Expanded
+Miyagawa edited the article on 2016-10-20T20:43:28Z with this edit comment: Begun expansion
+InternetArchiveBot edited the article on 2016-10-02T11:19:27Z with this edit comment: Rescuing 1 sources and tagging 0 as dead. #IABot (v1.2.4)
+KasparBot edited the article on 2016-05-22T01:25:07Z with this edit comment: migrating [[Wikipedia:Persondata|Persondata]] to Wikidata, [[toollabs:kasparbot/persondata/|please help]], see [[toollabs:kasparbot/persondata/challenge.php/article/Abdilatif Abdalla|challenges for this article]]
+KasparBot edited the article on 2015-04-26T23:16:36Z with this edit comment: authority control moved to wikidata
+GoodDay edited the article on 2015-01-12T01:05:45Z with this edit comment: Intro
+Vysotsky edited the article on 2014-11-06T09:22:11Z with this edit comment: Category
+Vysotsky edited the article on 2014-11-06T09:19:45Z with this edit comment: 
+Vysotsky edited the article on 2014-11-06T08:57:18Z with this edit comment: /* References and external links */
+Addbot edited the article on 2013-02-28T10:50:12Z with this edit comment: [[User:Addbot|Bot:]] Migrating 4 interwiki links, now provided by [[Wikipedia:Wikidata|Wikidata]] on [[d:q308189]] ([[User talk:Addbot|Report Errors]])
+Dsp13 edited the article on 2012-12-03T10:16:31Z with this edit comment: authority control
+SwisterTwister edited the article on 2012-04-06T20:30:31Z with this edit comment: +category
+Bgwhite edited the article on 2012-04-03T20:33:44Z with this edit comment: /* References and external links */Add info to [[Wikipedia:Persondata]] using [[Project:AWB|AWB]] (8032)
+KConWiki edited the article on 2012-03-31T17:53:14Z with this edit comment: 
+KConWiki edited the article on 2012-03-31T17:52:44Z with this edit comment: /* References and external links */
+Hmains edited the article on 2012-03-30T21:23:38Z with this edit comment: copyedit, clarity edits, MOS implementation, and/or AWB general fixes using [[Project:AWB|AWB]]
+ZéroBot edited the article on 2012-03-30T07:46:57Z with this edit comment: r2.7.1) (Robot: Adding [[fr:Abdilatif Abdalla]]
+ZéroBot edited the article on 2012-03-30T07:45:09Z with this edit comment: r2.7.1) (Robot: Adding [[es:Abdilatif Abdalla]], [[gl:Abdilatif Abdalla]]; removing: [[fr:Abdilatif Abdalla]]
+Gaudio edited the article on 2012-03-30T07:43:56Z with this edit comment: [[WP:AES|←]]Created page with ''''Abdilatif Abdalla''' ([[Mombasa]] [[1946]]) [[Kenya]]n writer and politician.   He worked in [[Mombasa]] Council and after his publication of a pamphlet where...'</code></pre>
+</div>
+</div>
+<p>Looking carefully, you’ll see that there are authors named which aren’t listed as the current <code>authorship</code> marks. To see all contributors, even if no text of them is in the latest version, we can use:</p>
+<div id="1c71c83b-05d1-4661-9c64-a86f46fc77b4" class="cell" data-execution_count="42">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>page.contributors()</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>Counter({'IOHANNVSVERVS': 6,
+         'Miyagawa': 3,
+         'Vysotsky': 3,
+         'Almaddy2022': 2,
+         'JJMC89 bot III': 2,
+         '2A02:8070:D1AC:E500:D480:B9B7:2A33:B6F6': 2,
+         'InternetArchiveBot': 2,
+         'KasparBot': 2,
+         'KConWiki': 2,
+         'ZéroBot': 2,
+         'Inter&amp;anthro': 1,
+         '96.106.43.35': 1,
+         '196.202.223.224': 1,
+         'BrownHairedGirl': 1,
+         'SdkbBot': 1,
+         'Citation bot': 1,
+         'Simeon': 1,
+         '75.188.45.156': 1,
+         'Jevansen': 1,
+         'Ser Amantio di Nicolao': 1,
+         '79.178.31.23': 1,
+         'Materialscientist': 1,
+         'Abdiladif33': 1,
+         'GoodDay': 1,
+         'Addbot': 1,
+         'Dsp13': 1,
+         'SwisterTwister': 1,
+         'Bgwhite': 1,
+         'Hmains': 1,
+         'Gaudio': 1})</code></pre>
+</div>
+</div>
+</section><section id="exploring-contributors" class="level2"><h2 class="anchored" data-anchor-id="exploring-contributors">Exploring contributors</h2>
+<p>Let’s now investigate a bit more details about those users:</p>
+<ol type="1">
+<li>how much have they edited in Wikipedia?</li>
+<li>are they a bot? and how many of the overall editors are bots?</li>
+<li>if they declare: what is their gender?</li>
+</ol>
+<div id="815ba00f-5241-4c79-9eb5-dffb188c8486" class="cell" data-scrolled="true" data-execution_count="60">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>bot_editors <span class="op">=</span> <span class="dv">0</span> <span class="co"># for counting bots</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> page.contributors():</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> pywikibot.User(site, i) <span class="co"># get user object to manipulate</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    user_groups <span class="op">=</span> user.groups()</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="sc">{}</span><span class="st"> made </span><span class="sc">{}</span><span class="st"> edits, declared their gender as </span><span class="sc">{}</span><span class="st"> and is in these user groups </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                                                                                                user.editCount(),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                                                                                                user.gender(),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                                                                                                user_groups))</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"bot"</span> <span class="kw">in</span> user_groups:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        bot_editors <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"In total </span><span class="sc">{}</span><span class="st"> of </span><span class="sc">{}</span><span class="st"> editors are bots (</span><span class="sc">{}</span><span class="st"> %)"</span>.<span class="bu">format</span>(bot_editors,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>                                                       <span class="bu">len</span>(page.contributors()),</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>                                                       bot_editors<span class="op">/</span><span class="bu">len</span>(page.contributors())</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>                                                      ))</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Almaddy2022 made 883 edits, declared their gender as unknown and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
+Inter&amp;anthro made 89857 edits, declared their gender as unknown and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
+IOHANNVSVERVS made 10862 edits, declared their gender as unknown and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
+96.106.43.35 made 0 edits, declared their gender as unknown and is in these user groups []
+196.202.223.224 made 0 edits, declared their gender as unknown and is in these user groups []
+JJMC89 bot III made 5653001 edits, declared their gender as unknown and is in these user groups ['bot', 'sysop', '*', 'user', 'autoconfirmed']
+BrownHairedGirl made 2942733 edits, declared their gender as female and is in these user groups ['autoreviewer', 'extendedconfirmed', 'filemover', 'reviewer', 'rollbacker', '*', 'user', 'autoconfirmed']
+SdkbBot made 370790 edits, declared their gender as unknown and is in these user groups ['bot', '*', 'user', 'autoconfirmed']
+Citation bot made 6065808 edits, declared their gender as unknown and is in these user groups ['bot', '*', 'user', 'autoconfirmed']
+Simeon made 1061294 edits, declared their gender as unknown and is in these user groups ['autoreviewer', 'extendedconfirmed', '*', 'user', 'autoconfirmed']
+2A02:8070:D1AC:E500:D480:B9B7:2A33:B6F6 made 0 edits, declared their gender as unknown and is in these user groups []
+75.188.45.156 made 0 edits, declared their gender as unknown and is in these user groups []
+Jevansen made 5512050 edits, declared their gender as male and is in these user groups ['autoreviewer', 'extendedconfirmed', 'extendedmover', 'reviewer', 'rollbacker', '*', 'user', 'autoconfirmed']
+Ser Amantio di Nicolao made 6934234 edits, declared their gender as unknown and is in these user groups ['autoreviewer', 'sysop', '*', 'user', 'autoconfirmed']
+79.178.31.23 made 0 edits, declared their gender as unknown and is in these user groups []
+InternetArchiveBot made 6040325 edits, declared their gender as unknown and is in these user groups ['bot', 'reviewer', '*', 'user', 'autoconfirmed']
+Materialscientist made 2075272 edits, declared their gender as unknown and is in these user groups ['abusefilter', 'autoreviewer', 'checkuser', 'rollbacker', 'sysop', '*', 'user', 'autoconfirmed']
+Abdiladif33 made 4 edits, declared their gender as unknown and is in these user groups ['*', 'user']
+Miyagawa made 57339 edits, declared their gender as male and is in these user groups ['extendedconfirmed', 'reviewer', 'rollbacker', '*', 'user', 'autoconfirmed']
+KasparBot made 1549811 edits, declared their gender as unknown and is in these user groups ['*', 'user', 'autoconfirmed']
+GoodDay made 520051 edits, declared their gender as unknown and is in these user groups ['autoreviewer', 'extendedconfirmed', 'reviewer', '*', 'user', 'autoconfirmed']
+Vysotsky made 15287 edits, declared their gender as male and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
+Addbot made 2838809 edits, declared their gender as unknown and is in these user groups ['bot', '*', 'user', 'autoconfirmed']
+Dsp13 made 104600 edits, declared their gender as unknown and is in these user groups ['autoreviewer', 'extendedconfirmed', 'ipblock-exempt', 'reviewer', '*', 'user', 'autoconfirmed']
+SwisterTwister made 187094 edits, declared their gender as male and is in these user groups ['*', 'user', 'autoconfirmed']
+Bgwhite made 547151 edits, declared their gender as unknown and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
+KConWiki made 198038 edits, declared their gender as male and is in these user groups ['autoreviewer', 'extendedconfirmed', '*', 'user', 'autoconfirmed']
+Hmains made 1214500 edits, declared their gender as male and is in these user groups ['autoreviewer', 'extendedconfirmed', 'reviewer', '*', 'user', 'autoconfirmed']
+ZéroBot made 704777 edits, declared their gender as unknown and is in these user groups ['*', 'user', 'autoconfirmed']
+Gaudio made 10369 edits, declared their gender as unknown and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
+In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
+</div>
+</div>
+<p>If we want, we can also explore the other content that those editors have touched. Using a single editor as an example:</p>
+<div id="d4d45eb3-1a75-45ca-801e-473508b69bd0" class="cell" data-execution_count="62">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> pywikibot.User(site, <span class="st">"Almaddy2022"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> page <span class="kw">in</span> user.contributions(total<span class="op">=</span><span class="dv">50</span>):</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(page)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Page('Lamu Fort Library'), 1332190871, Timestamp(2026, 1, 10, 12, 6, 14), 'I have added a citation')
+(Page('Lamu Fort Library'), 1332190768, Timestamp(2026, 1, 10, 12, 4, 47), '/* Archive section */ I have added a citation for ustadh Mau')
+(Page('Lamu Fort Library'), 1311935664, Timestamp(2025, 9, 17, 18, 50, 39), '/* Friends of the Library */ I have added a link of the friends of the library')
+(Page('Lamu Fort Library'), 1311935285, Timestamp(2025, 9, 17, 18, 47, 52), '/* Friends of the Library */ I have added a friend of library')
+(Page('Mamie Buazo'), 1298753712, Timestamp(2025, 7, 4, 13, 3, 21), 'I have added a reference on the content I have added on the short description space about her life time')
+(Page('Mamie Buazo'), 1298753164, Timestamp(2025, 7, 4, 12, 59, 20), 'I have added contents on mamie short description')
+(Page('Mamie Buazo'), 1298751050, Timestamp(2025, 7, 4, 12, 42, 44), 'I have added her childhood life of Mamie')
+(Page('Mamie Buazo'), 1298750577, Timestamp(2025, 7, 4, 12, 38, 43), 'I have added the information of the place where Mamie was born')
+(Page('Gisèle Bosimba'), 1298747254, Timestamp(2025, 7, 4, 12, 12, 50), 'I have added a reference on the Gisele article of the information about the football team')
+(Page('Gisèle Bosimba'), 1298722760, Timestamp(2025, 7, 4, 7, 40, 54), "/* International career */ I have added a link of the African Women's Championship")
+(Page('Gisèle Bosimba'), 1298722614, Timestamp(2025, 7, 4, 7, 38, 26), "/* International career */ I have added more information about African Women's Championship")
+(Page('Abdilatif Abdalla'), 1285549690, Timestamp(2025, 4, 14, 10, 8, 57), '')
+(Page('Abdilatif Abdalla'), 1284245409, Timestamp(2025, 4, 6, 12, 24, 59), '/* Political imprisonment and writing */ I have added links of Kimati Prison and Shimo la Tewa')
+(Page('User talk:Almaddy2022'), 1283735865, Timestamp(2025, 4, 3, 9, 40, 57), '/* Deletion discussion about Traditional Lime Making and uses */ Reply')
+(Page('Khadija Abdalla Bajaber'), 1283562354, Timestamp(2025, 4, 2, 7, 35, 49), 'I have added some information about her participation in Macondo Literature Festival 2024.')
+(Page('Khadija Abdalla Bajaber'), 1283557931, Timestamp(2025, 4, 2, 7, 3, 16), 'I have added a link to the article incase someone need to find  the work of Khadija Bajaber Enkare Review link')
+(Page('Talk:Lamu Fort Library'), 1276702571, Timestamp(2025, 2, 20, 8, 40, 20), '/* Proposed merger */ Reply')
+(Page('Siyu'), 1267232604, Timestamp(2025, 1, 4, 5, 20, 33), '/* See also */ I have added a Lamu Fort link')
+(Page('Lamu Fort'), 1267231770, Timestamp(2025, 1, 4, 5, 13, 34), 'I have added a citation of Lamu Fort Library')
+(Page('Lamu Fort Library'), 1267230760, Timestamp(2025, 1, 4, 5, 6, 27), '/* Library Services */  I have added a link of Lamu Maktaba ya sanaa')
+(Page('Lamu Fort Library'), 1267230555, Timestamp(2025, 1, 4, 5, 5, 13), '/* Maktaba ya Sanaa Section */  I have added a link of Lamu Maktaba ya sanaa to give information about the Lamu Maktaba ya Sanaa')
+(Page('Lamu Fort Library'), 1267228558, Timestamp(2025, 1, 4, 4, 54, 2), '/* Awards */ edit the invisible wikidata article')
+(Page('Lamu Fort Library'), 1267226894, Timestamp(2025, 1, 4, 4, 42, 21), 'I have added a link of Lamu Fort Librarian')
+(Page('Lamu Fort'), 1267224144, Timestamp(2025, 1, 4, 4, 24, 41), 'I have added a link of a Lamu Fort Library as a department of the Lamu Fort')
+(Page('Lamu Fort'), 1267222418, Timestamp(2025, 1, 4, 4, 12, 56), 'I have added a link of Lamu Fort Library on the Lamu Fort article to give information of the Lamu Fort Library as a department of the Lamu Fort')
+(Page('Lamu Fort'), 1267221346, Timestamp(2025, 1, 4, 4, 5, 34), 'I have added external link of Lamu Fort Library as a department of National Museums of Kenya Lamu Fort')
+(Page('Jamshid bin Abdullah'), 1266414128, Timestamp(2024, 12, 31, 13, 55, 28), '/* Biography */ I have added a citation on the Zanzibar revolution over Sultan Jamshid')
+(Page('Jamshid bin Abdullah'), 1266413260, Timestamp(2024, 12, 31, 13, 48, 3), '/* Biography */ I have added citation where needed on the Zanzibar revolution')
+(Page('Jamshid bin Abdullah'), 1266410068, Timestamp(2024, 12, 31, 13, 21, 4), '/* Biography */ I have added a link on the word sultan to let the people know the meaning of the sultan')
+(Page('Jamshid bin Abdullah'), 1266409630, Timestamp(2024, 12, 31, 13, 17, 3), '/* Biography */ I have added a link on the British protectorate, to explain the meaning of the British  protectorate for further study')
+(Page('Jamshid bin Abdullah'), 1266350623, Timestamp(2024, 12, 31, 5, 41, 24), '/* Death */ I have made some edits')
+(Page('Jamshid bin Abdullah'), 1266350312, Timestamp(2024, 12, 31, 5, 39, 30), '/* Death */ I have made some edits')
+(Page('Jamshid bin Abdullah'), 1266350082, Timestamp(2024, 12, 31, 5, 38, 8), '/* Death */ i have made some edit')
+(Page('Jamshid bin Abdullah'), 1266348452, Timestamp(2024, 12, 31, 5, 28, 33), '/* Death */ I have made some edits')
+(Page('Jamshid bin Abdullah'), 1266347593, Timestamp(2024, 12, 31, 5, 23, 32), '/* Ancestry */ I have added death information of the Sultan and the death heading')
+(Page('Istanbul Biennial'), 1265318513, Timestamp(2024, 12, 26, 9, 18, 54), '/* Past biennials */ I have made some edits')
+(Page('Istanbul Biennial'), 1265313425, Timestamp(2024, 12, 26, 8, 25, 4), '/* 18th Istanbul Biennial,2024 */ I have made some edits')
+(Page('Istanbul Biennial'), 1265313386, Timestamp(2024, 12, 26, 8, 24, 31), '/* Past participating artists */ I have added a list of curator on the participants list')
+(Page('Lydia Gatundu Galavu'), 1265312052, Timestamp(2024, 12, 26, 8, 11, 37), '/* Exhibitions */ I have added a link')
+(Page('Lydia Gatundu Galavu'), 1265303372, Timestamp(2024, 12, 26, 6, 54, 59), '/* Exhibitions */ I have added a link')
+(Page('Lydia Gatundu Galavu'), 1265303056, Timestamp(2024, 12, 26, 6, 52, 39), '/* Exhibitions */ I have added a link')
+(Page('Lydia Gatundu Galavu'), 1265302672, Timestamp(2024, 12, 26, 6, 50, 7), '/* Exhibitions */ I have added a link')
+(Page('Lydia Gatundu Galavu'), 1265302147, Timestamp(2024, 12, 26, 6, 46, 22), '/* Career */ I have made some edits')
+(Page('Lydia Gatundu Galavu'), 1265300769, Timestamp(2024, 12, 26, 6, 36, 42), '/* Career */ I have made some edits')
+(Page('Lydia Gatundu Galavu'), 1265300227, Timestamp(2024, 12, 26, 6, 32, 52), '/* Career */ I have made some edits')
+(Page('Lydia Gatundu Galavu'), 1265298799, Timestamp(2024, 12, 26, 6, 22, 4), '/* Exhibitions */ I have added some text')
+(Page('Lydia Gatundu Galavu'), 1265296694, Timestamp(2024, 12, 26, 6, 8, 34), '/* Exhibitions */ I have made some edits')
+(Page('Lydia Gatundu Galavu'), 1265164055, Timestamp(2024, 12, 25, 13, 1, 54), '/* Exhibitions */ I have made some edits')
+(Page('Lydia Gatundu Galavu'), 1265163702, Timestamp(2024, 12, 25, 12, 57, 46), '/* Exhibitions */ I have made some edits')
+(Page('Lydia Gatundu Galavu'), 1265163223, Timestamp(2024, 12, 25, 12, 53), '/* Exhibitions */ I have made some edits')</code></pre>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/example\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body>
+</html>
