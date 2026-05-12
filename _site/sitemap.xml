@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/es/extra_pages.html</loc>
-    <lastmod>2026-05-12T18:40:37.325Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/extra_pages.html</loc>
+    <lastmod>2026-05-12T18:48:36.088Z</lastmod>
   </url>
   <url>
-    <loc>/es/index.html</loc>
-    <lastmod>2026-05-12T18:40:37.326Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/index.html</loc>
+    <lastmod>2026-05-12T18:48:36.088Z</lastmod>
   </url>
   <url>
-    <loc>/es/pywikibot-examples.de.html</loc>
-    <lastmod>2026-05-12T18:40:42.932Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examples.de.html</loc>
+    <lastmod>2026-05-12T18:48:45.929Z</lastmod>
   </url>
   <url>
-    <loc>/es/about.html</loc>
-    <lastmod>2026-05-12T18:40:37.299Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/about.html</loc>
+    <lastmod>2026-05-12T18:48:36.062Z</lastmod>
   </url>
   <url>
-    <loc>/es/pywikibot-examples.html</loc>
-    <lastmod>2026-05-12T18:40:42.933Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examples.html</loc>
+    <lastmod>2026-05-12T18:48:45.930Z</lastmod>
   </url>
   <url>
-    <loc>/de/extra_pages.html</loc>
-    <lastmod>2026-05-12T18:41:08.104Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/extra_pages.html</loc>
+    <lastmod>2026-05-12T18:48:59.924Z</lastmod>
   </url>
   <url>
-    <loc>/de/index.html</loc>
-    <lastmod>2026-05-12T18:41:08.105Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/index.html</loc>
+    <lastmod>2026-05-12T18:48:59.924Z</lastmod>
   </url>
   <url>
-    <loc>/de/pywikibot-examples.de.html</loc>
-    <lastmod>2026-05-12T18:41:14.903Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examples.de.html</loc>
+    <lastmod>2026-05-12T18:49:09.469Z</lastmod>
   </url>
   <url>
-    <loc>/de/about.html</loc>
-    <lastmod>2026-05-12T18:41:08.087Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/about.html</loc>
+    <lastmod>2026-05-12T18:48:59.898Z</lastmod>
   </url>
   <url>
-    <loc>/de/pywikibot-examples.html</loc>
-    <lastmod>2026-05-12T18:41:14.904Z</lastmod>
+    <loc>https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examples.html</loc>
+    <lastmod>2026-05-12T18:49:09.469Z</lastmod>
   </url>
   <url>
     <loc>https://example.com/extra_pages.html</loc>
-    <lastmod>2026-05-12T18:40:10.184Z</lastmod>
+    <lastmod>2026-05-12T18:48:13.335Z</lastmod>
   </url>
   <url>
     <loc>https://example.com/pywikibot-examples.html</loc>
-    <lastmod>2026-05-12T18:40:13.661Z</lastmod>
+    <lastmod>2026-05-12T18:48:23.116Z</lastmod>
   </url>
   <url>
     <loc>https://example.com/about.html</loc>
-    <lastmod>2026-05-12T18:40:10.165Z</lastmod>
+    <lastmod>2026-05-12T18:48:13.310Z</lastmod>
   </url>
   <url>
     <loc>https://example.com/pywikibot-examples.de.html</loc>
-    <lastmod>2026-05-12T18:40:13.660Z</lastmod>
+    <lastmod>2026-05-12T18:48:23.115Z</lastmod>
   </url>
   <url>
     <loc>https://example.com/index.html</loc>
-    <lastmod>2026-05-12T18:40:10.185Z</lastmod>
+    <lastmod>2026-05-12T18:48:13.335Z</lastmod>
   </url>
   <url>
     <loc>https://example.com/foobar.html</loc>
-    <lastmod>2026-05-12T18:40:10.185Z</lastmod>
+    <lastmod>2026-05-12T18:48:13.335Z</lastmod>
   </url>
 </urlset>
