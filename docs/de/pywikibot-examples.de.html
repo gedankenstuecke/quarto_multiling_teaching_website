@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
-<link rel="alternate" hreflang="en" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/pywikibot-examplhtml" />
-<link rel="alternate" hreflang="es" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examp.es.html" />
-<link rel="alternate" hreflang="de" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examp.de.html" />
+<link rel="alternate" hreflang="en" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/pywikibot-examples.html" />
+<link rel="alternate" hreflang="es" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examples.es.html" />
+<link rel="alternate" hreflang="de" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examples.de.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>How to use pywikibot – Un ejemplo en Quarto</title>
+<title>Wie eins pywikibot nutzen kann – Ein Beispiel in Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,17 +79,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No se han encontrado resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
   }
 }</script><script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script><script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script><link rel="stylesheet" href="styles.css">
 </head>
@@ -99,19 +99,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Un ejemplo en Quarto</span>
+    <span class="navbar-title">Ein Beispiel in Quarto</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Español</button><ul class="dropdown-menu" id="languages-links">
-<li><a class="dropdown-item" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examples.html" id="language-link-de">Deutsch</a></li>
-<li><a class="dropdown-item" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/pywikibot-examples.html" id="language-link-en">English</a></li>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Deutsch</button><ul class="dropdown-menu" id="languages-links">
+<li><a class="dropdown-item" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examples.html" id="language-link-es">Español</a></li>
+<li><a class="dropdown-item" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/pywikibot-examples.de.html" id="language-link-en">English</a></li>
 </ul>
 </div></li>
 <li class="nav-item">
@@ -120,14 +120,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Sobre</span></a>
+<span class="menu-text">Über</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./extra_pages.html"> 
-<span class="menu-text">Más páginas</span></a>
+<span class="menu-text">Extra Seiten</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./pywikibot-examples.html" aria-current="page"> 
+    <a class="nav-link" href="./pywikibot-examples.html"> 
 <span class="menu-text">How to use <code>pywikibot</code></span></a>
   </li>  
 </ul>
@@ -139,11 +139,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">En esta página</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#getting-all-kenyan-politician-pages-based-on-category" id="toc-getting-all-kenyan-politician-pages-based-on-category" class="nav-link" data-scroll-target="#getting-all-kenyan-politician-pages-based-on-category">Getting all Kenyan politician pages (based on category)</a></li>
+<li><a href="#konfiguration" id="toc-konfiguration" class="nav-link active" data-scroll-target="#konfiguration">Konfiguration</a></li>
+  <li><a href="#alle-wikipedia-seiten-f%C3%BCr-kenianische-politiker-abrufen-basierend-auf-der-kategorie" id="toc-alle-wikipedia-seiten-für-kenianische-politiker-abrufen-basierend-auf-der-kategorie" class="nav-link" data-scroll-target="#alle-wikipedia-seiten-für-kenianische-politiker-abrufen-basierend-auf-der-kategorie">Alle Wikipedia-Seiten für kenianische Politiker abrufen (basierend auf der Kategorie)</a></li>
   <li><a href="#getting-a-single-page" id="toc-getting-a-single-page" class="nav-link" data-scroll-target="#getting-a-single-page">Getting a single page</a></li>
   <li><a href="#exploring-categories-a-page-belongs-to" id="toc-exploring-categories-a-page-belongs-to" class="nav-link" data-scroll-target="#exploring-categories-a-page-belongs-to">Exploring categories a page belongs to</a></li>
   <li><a href="#authorship" id="toc-authorship" class="nav-link" data-scroll-target="#authorship">Authorship</a></li>
@@ -160,8 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">How to use <code>pywikibot</code>
-</h1>
+<h1 class="title">Wie eins <code>pywikibot</code> nutzen kann</h1>
 </div>
 
 
@@ -175,22 +174,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Load library, and check that your username was set (to create a unique user agent for API limits). Read from <code>user-config.py</code> in the same folder as the notebook if available, created by <code>pwb generate_user_files</code></p>
-<section id="setup" class="level2"><h2 class="anchored" data-anchor-id="setup">Setup</h2>
+</header><p>Wir laden die Programmbibliothek, überprüfen dass der Nutzername korrekt gesetzt wurde um die API limits für unseren Nutzendenaccount einzuhalten. Der Nutzername wird aus <code>user-config.py</code> im gleichen Ordner wie dieses Notebook gelesen. Die Konfigurationsdatei kann über <code>pwb generate_user_files</code> generiert werden</p>
+<section id="konfiguration" class="level2"><h2 class="anchored" data-anchor-id="konfiguration">Konfiguration</h2>
 <div id="c2181fb0-2726-4a24-9ddd-2257a6e6824b" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pywikibot</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pywikibot.config.usernames</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>defaultdict(dict, {'wikipedia': {'en': 'Gedankenstuecke'}, 'wikidata': {}})</code></pre>
 </div>
 </div>
-<p>If you see a username for your language edition for Wikipedia you’re all set. Now we can start getting all pages for a given category.</p>
-</section><section id="getting-all-kenyan-politician-pages-based-on-category" class="level2"><h2 class="anchored" data-anchor-id="getting-all-kenyan-politician-pages-based-on-category">Getting all Kenyan politician pages (based on category)</h2>
-<p>Using <code>recurse=True</code> lets us also get files present in sub-categories if present. For the demo we use <code>Category:Kenyan_politicians</code> as the category of interest:</p>
+<p>Falls ein Nutzername für die gewählte Sprachedition von Wikipedia erscheint ist alles okay!</p>
+</section><section id="alle-wikipedia-seiten-für-kenianische-politiker-abrufen-basierend-auf-der-kategorie" class="level2"><h2 class="anchored" data-anchor-id="alle-wikipedia-seiten-für-kenianische-politiker-abrufen-basierend-auf-der-kategorie">Alle Wikipedia-Seiten für kenianische Politiker abrufen (basierend auf der Kategorie)</h2>
+<p>Mit <code>recurse=True</code> finden wir auch alle Seiten die in Subkategorien sind. Hier nutzen wir <code>Category:Kenyan_politicians</code> als Startkategorie:</p>
 <div id="e7e46c24-b78b-47e1-9789-734e0bc8bddb" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>site <span class="op">=</span> pywikibot.Site(<span class="st">'en'</span>, <span class="st">'wikipedia'</span>) <span class="co"># select the wikimedia project we want to interact with</span></span>
@@ -200,13 +199,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> category.articles(recurse<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    politician_pages.append(i)</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 </div>
 <div id="98acae50-f05d-4112-bf9d-a5b66fce3fd0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are </span><span class="sc">{}</span><span class="st"> pages in the 'Kenyan politicians' category"</span>.<span class="bu">format</span>(<span class="bu">len</span>(politician_pages)))</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>There are 933 pages in the 'Kenyan politicians' category</code></pre>
@@ -218,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>page <span class="op">=</span> politician_pages[<span class="dv">0</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>page.title()</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>'Abdilatif Abdalla'</code></pre>
@@ -228,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fc8f2407-36a3-4277-ac87-5980483d7fe6" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>page.text[:<span class="dv">2000</span>]</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>'{{short description|Kenyan writer and political activist}}\n{{Use dmy dates|date=April 2022}}\n\'\'\'Abdilatif Abdalla\'\'\' (born 1946 in [[Mombasa]]) is a Kenyan writer and political activist. He was imprisoned for his support of the [[Kenya People\'s Union]], and began writing poetry in [[solitary confinement]]. A collection of poems from this time were published as a book titled \'\'Sauti ya Dhiki\'\'{{efn|"Voice of Agony"}} (1973), which was awarded the [[Jomo Kenyatta Prize for Literature]].\n\n==Early life==\nAbdilatif Abdalla was born in [[Mombasa]], [[Kenya]], in 1946, where he was brought up by his grandfather Ahmad Basheikh bin Hussein. Abdalla attended school in [[Faza]], before undertaking further studies at the British Tutorial College. He began his political involvement after working for the Mombasa City Council as an assistant [[accountant]], writing the pamphlet \'\'Kenya Twendapi?\'\' (Eng: \'\'Kenya, Where Are We Headed\'\') in support of the [[Kenya People\'s Union]] in 1968.{{sfn |Akyeampong|Gates| 2012| pp=17-18}}&lt;ref name="Pambazuka"&gt;{{cite news|last1=wa Wanjiru|first1=Kimani|title=Abdilatif Abdalla: \'My poems gave me company\'|url=http://www.pambazuka.org/arts/abdilatif-abdalla-my-poems-gave-me-company|access-date=20 October 2016|work=Pambazuka News|date=14 October 2010}}&lt;/ref&gt;\n\n==Political imprisonment and writing==\nWhen the Kenyan Government of [[Jomo Kenyatta]] conducted a crackdown on KPU activists, Abdalla was imprisoned for conspiracy between 1969 and 1972. He was at first held in [[Kamiti Maximum Security Prison|Kamiti Prison]], and later in [https://kituochasheria.or.ke/shimo-la-tewa-mens-justice-centre/ Shimo la Tewa Prison], where he was kept in solitary confinement. It was while imprisoned that he wrote the poems that would be collected in the 1973 work \'\'Sauti ya Dhiki\'\', whose title translates to "Voice of Agony". These were written in the Mombasa version of the [[Swahili language]]{{sfn |Akyeampong|Gates| 2012| pp=17-18}} and published by his older broth'</code></pre>
@@ -240,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> page.categories():</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c)</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[en:Category:1946 births]]
@@ -264,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="f762034c-cf6f-41bd-a1ee-8adffe3ce461" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>page.authorship()</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>{'Miyagawa': (2195, 52.0),
@@ -278,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cf1d72cb-d841-48fa-953f-3744eeba203f" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>page.revision_count()</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>46</code></pre>
@@ -289,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> page.revisions():</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="sc">{}</span><span class="st"> edited the article on </span><span class="sc">{}</span><span class="st"> with this edit comment: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i[<span class="st">'user'</span>], i[<span class="st">'timestamp'</span>], i[<span class="st">'comment'</span>]))</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Almaddy2022 edited the article on 2025-04-14T10:08:57Z with this edit comment: 
@@ -344,7 +343,7 @@ Gaudio edited the article on 2012-03-30T07:43:56Z with this edit comment: [[WP:A
 <div id="1c71c83b-05d1-4661-9c64-a86f46fc77b4" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>page.contributors()</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>Counter({'IOHANNVSVERVS': 6,
@@ -405,7 +404,7 @@ Gaudio edited the article on 2012-03-30T07:43:56Z with this edit comment: [[WP:A
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>                                                       bot_editors<span class="op">/</span><span class="bu">len</span>(page.contributors())</span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>                                                      ))</span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Almaddy2022 made 883 edits, declared their gender as unknown and is in these user groups ['extendedconfirmed', '*', 'user', 'autoconfirmed']
@@ -448,7 +447,7 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> page <span class="kw">in</span> user.contributions(total<span class="op">=</span><span class="dv">50</span>):</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(page)</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Page('Lamu Fort Library'), 1332190871, Timestamp(2026, 1, 10, 12, 6, 14), 'I have added a citation')
@@ -509,7 +508,7 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <div id="6749a3ce-24bb-469b-997c-9790db91df17" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> politician_pages[<span class="dv">1</span>]</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 </div>
 <p>Now we:</p>
@@ -524,18 +523,18 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'page_title'</span>] <span class="op">=</span> p.title() <span class="co"># add title which is missing from revisions</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'size_difference'</span>] <span class="op">=</span> df[<span class="st">'size'</span>] <span class="op">-</span> df[<span class="st">'size'</span>].shift(periods<span class="op">=-</span><span class="dv">1</span>, fill_value<span class="op">=</span><span class="dv">0</span>) <span class="co"># add the size difference between each revision / previous state </span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 </div>
 <section id="plotting-the-number-of-edits-per-editor" class="level3"><h3 class="anchored" data-anchor-id="plotting-the-number-of-edits-per-editor">Plotting the number of edits per editor</h3>
 <div id="87fb74b1-521d-4ccf-b3fc-decf335b2197" class="cell" data-execution_count="56">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">"user"</span>]).count()[<span class="st">'userid'</span>].plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure"><p><img src="pywikibot-examples_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<figure class="figure"><p><img src="pywikibot-examples.de_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -545,18 +544,18 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <div id="75e4597f-5d13-425a-90bb-13adf9ec3f08" class="cell" data-execution_count="66">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'user'</span>)[<span class="st">'size_difference'</span>].<span class="bu">sum</span>().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure"><p><img src="pywikibot-examples_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+<figure class="figure"><p><img src="pywikibot-examples.de_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section></section><section id="creating-a-dataframe-for-all-pages" class="level2"><h2 class="anchored" data-anchor-id="creating-a-dataframe-for-all-pages">Creating a <code>DataFrame</code> for all pages</h2>
 <p>Now that we got a working code to create a <code>DataFrame</code> over all revisions of a single page, let’s zoom one more step out - and create it for all pages in our category:</p>
-<div id="593a90b9-2e03-49a5-9dbe-00fb1804b3c8" class="cell" data-execution_count="86">
+<div id="593a90b9-2e03-49a5-9dbe-00fb1804b3c8" class="cell">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_politicians <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -570,14 +569,21 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>        df_politicians <span class="op">=</span> df</span>
 <span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>df_politicians.head()</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="86">
+</div>
+<div id="44b25471-2432-4d22-a9e6-ff818e27a933" class="cell" data-execution_count="85">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_politicians.groupby([<span class="st">"page_title"</span>]).count()[<span class="st">'user'</span>].plot(kind<span class="op">=</span><span class="st">'bar'</span>,figsize<span class="op">=</span>(<span class="dv">30</span>,<span class="dv">10</span>))</span></code></pre></div>
+<button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="85">
 <div>
 
 
 <table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">revid</th>
 <th data-quarto-table-cell-role="th">parentid</th>
@@ -590,161 +596,311 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <th data-quarto-table-cell-role="th">roles</th>
 <th data-quarto-table-cell-role="th">slots</th>
 <th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">tags</th>
 <th data-quarto-table-cell-role="th">anon</th>
 <th data-quarto-table-cell-role="th">userhidden</th>
 <th data-quarto-table-cell-role="th">commenthidden</th>
 <th data-quarto-table-cell-role="th">text</th>
 <th data-quarto-table-cell-role="th">contentmodel</th>
-<th data-quarto-table-cell-role="th">page_title</th>
 <th data-quarto-table-cell-role="th">size_difference</th>
 <th data-quarto-table-cell-role="th">temp</th>
 <th data-quarto-table-cell-role="th">sha1hidden</th>
 <th data-quarto-table-cell-role="th">suppressed</th>
-</tr></thead>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">page_title</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>1285549690</td>
-<td>1284245409</td>
-<td>True</td>
-<td>Almaddy2022</td>
-<td>44620763.0</td>
-<td>2025-04-14 10:08:57</td>
-<td>4224</td>
-<td>dac6097a46b4f8553538a7cd72f8e21144a98f25</td>
-<td>[main]</td>
-<td>{'main': {'contentmodel': 'wikitext', 'content...</td>
+<th data-quarto-table-cell-role="th">Aaron Cheruiyot</th>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
 <td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>{{short description|Kenyan writer and politica...</td>
-<td>wikitext</td>
-<td>Abdilatif Abdalla</td>
-<td>8</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>1284245409</td>
-<td>1241910337</td>
-<td>False</td>
-<td>Almaddy2022</td>
-<td>44620763.0</td>
-<td>2025-04-06 12:24:59</td>
-<td>4216</td>
-<td>9702f3020b6af39bfe3d4c665ddff5caa65b9b51</td>
-<td>[main]</td>
-<td>{'main': {'contentmodel': 'wikitext', 'content...</td>
+<th data-quarto-table-cell-role="th">Ababu Namwamba</th>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>174</td>
+<td>179</td>
+<td>179</td>
 <td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>{{short description|Kenyan writer and politica...</td>
-<td>wikitext</td>
-<td>Abdilatif Abdalla</td>
-<td>93</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>179</td>
+<td>174</td>
+<td>179</td>
+<td>179</td>
+<td>1</td>
+<td>5</td>
+<td>0</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>1241910337</td>
-<td>1215802812</td>
-<td>True</td>
-<td>Inter&amp;anthro</td>
-<td>18180119.0</td>
-<td>2024-08-23 20:59:25</td>
-<td>4123</td>
-<td>3855f560b43074cb4ddf410042636935866d6e54</td>
-<td>[main]</td>
-<td>{'main': {'contentmodel': 'wikitext', 'content...</td>
+<th data-quarto-table-cell-role="th">Abass Sheikh Mohamed</th>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
 <td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>{{short description|Kenyan writer and politica...</td>
-<td>wikitext</td>
-<td>Abdilatif Abdalla</td>
-<td>38</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>1215802812</td>
-<td>1215802775</td>
-<td>False</td>
-<td>IOHANNVSVERVS</td>
-<td>24759391.0</td>
-<td>2024-03-27 06:08:59</td>
-<td>4085</td>
-<td>edde49d1d4e95abcdd491f4e142fdd2f3fed23eb</td>
-<td>[main]</td>
-<td>{'main': {'contentmodel': 'wikitext', 'content...</td>
+<th data-quarto-table-cell-role="th">Abdalla Mwidau</th>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
 <td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>{{short description|Kenyan writer and politica...</td>
-<td>wikitext</td>
-<td>Abdilatif Abdalla</td>
-<td>-1</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>1215802775</td>
-<td>1215802684</td>
-<td>False</td>
-<td>IOHANNVSVERVS</td>
-<td>24759391.0</td>
-<td>2024-03-27 06:08:39</td>
-<td>4086</td>
-<td>6e4050681632db2525ccc51e26e2cf99ab2a9a42</td>
-<td>[main]</td>
-<td>{'main': {'contentmodel': 'wikitext', 'content...</td>
+<th data-quarto-table-cell-role="th">Abdi Omar Shurie</th>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
 <td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>{{short description|Kenyan writer and politica...</td>
-<td>wikitext</td>
-<td>Abdilatif Abdalla</td>
-<td>13</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Zack Kìnùthia</th>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>...</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>139</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Zakayo Cheruiyot</th>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>...</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>72</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Zamzam Mohamed</th>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>...</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Zebedeo John Opore</th>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>...</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Zuleikha Hassan</th>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>...</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-<p>5 rows × 23 columns</p>
+<p>549 rows × 22 columns</p>
 </div>
-</div>
-</div>
-<div id="44b25471-2432-4d22-a9e6-ff818e27a933" class="cell" data-execution_count="87">
-<div class="code-copy-outer-scaffold">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_politicians.groupby([<span class="st">"page_title"</span>]).count()[<span class="st">'user'</span>].plot(kind<span class="op">=</span><span class="st">'bar'</span>,figsize<span class="op">=</span>(<span class="dv">30</span>,<span class="dv">10</span>))</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure"><p><img src="pywikibot-examples_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now we can save this data frame with all of those details:</p>
-<div id="df8132fe-f6c1-4a89-a97b-7b9611ced8a2" class="cell" data-execution_count="88">
-<div class="code-copy-outer-scaffold">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_politicians.to_csv(<span class="st">'pages_category_kenyian_politicians.csv'</span>)</span></code></pre></div>
-<button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button>
 </div>
 </div>
 
@@ -774,12 +930,12 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Kopiert");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Kopiert");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -822,7 +978,7 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/gedankenstuecke\.github\.io\/quarto_multiling_teaching_website\/es");
+        var filterRegex = new RegExp("https:\/\/gedankenstuecke\.github\.io\/quarto_multiling_teaching_website\/de");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
