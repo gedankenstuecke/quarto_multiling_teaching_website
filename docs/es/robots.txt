@@ -1,1 +1,1 @@
-Sitemap: /es/sitemap.xml
+Sitemap: https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/sitemap.xml
