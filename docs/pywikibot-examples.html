@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="en" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/pywikibot-examples.html" />
-<link rel="alternate" hreflang="es" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examples.es.html" />
-<link rel="alternate" hreflang="de" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examples.de.html" />
+<link rel="alternate" hreflang="en" href="/pywikibot-examples.html" />
+<link rel="alternate" hreflang="es" href="/es/pywikibot-examples.es.html" />
+<link rel="alternate" hreflang="de" href="/de/pywikibot-examples.de.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -110,8 +110,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item"><div class="dropdown" id="languages-links-parent">
 <button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links">
-<li><a class="dropdown-item" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/de/pywikibot-examples.html" id="language-link-de">Deutsch</a></li>
-<li><a class="dropdown-item" href="https://gedankenstuecke.github.io/quarto_multiling_teaching_website/es/pywikibot-examples.html" id="language-link-es">Español</a></li>
+<li><a class="dropdown-item" href="/de/pywikibot-examples.html" id="language-link-de">Deutsch</a></li>
+<li><a class="dropdown-item" href="/es/pywikibot-examples.html" id="language-link-es">Español</a></li>
 </ul>
 </div></li>
 <li class="nav-item">
@@ -156,6 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#creating-a-dataframe-for-all-pages" id="toc-creating-a-dataframe-for-all-pages" class="nav-link" data-scroll-target="#creating-a-dataframe-for-all-pages">Creating a <code>DataFrame</code> for all pages</a></li>
+  <li><a href="#saving-the-basic-user-details" id="toc-saving-the-basic-user-details" class="nav-link" data-scroll-target="#saving-the-basic-user-details">Saving the basic user details</a></li>
   </ul></nav>
 </div>
 <!-- main -->
@@ -744,6 +745,68 @@ In total 5 of 30 editors are bots (0.16666666666666666 %)</code></pre>
 <div id="df8132fe-f6c1-4a89-a97b-7b9611ced8a2" class="cell" data-execution_count="88">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_politicians.to_csv(<span class="st">'pages_category_kenyian_politicians.csv'</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</div>
+</section><section id="saving-the-basic-user-details" class="level2"><h2 class="anchored" data-anchor-id="saving-the-basic-user-details">Saving the basic user details</h2>
+<p>Let’s now do a similar approach for saving the basic stats for the users that have touched those pages, including their total edit counts, gender (if entered), and whether they are registered users and/or bots</p>
+<div id="8bcb3ada-0d54-4315-81ee-027114d98541" class="cell" data-execution_count="93">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> df_politicians[<span class="st">'user'</span>].unique():</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> pywikibot.User(site, i) <span class="co"># get user object to manipulate</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    user_groups <span class="op">=</span> user.groups()</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</div>
+<div id="0cf0ad14-8d30-4697-a6d0-fa884840143e" class="cell" data-execution_count="123">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> user.first_edit</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</div>
+<div id="cf0e86de-5394-4a42-9367-b828dd2b6944" class="cell" data-execution_count="129">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>]</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="129">
+<pre><code>Timestamp(2023, 7, 31, 11, 48, 57)</code></pre>
+</div>
+</div>
+<div id="7d44193d-85ae-4c48-91a1-51ef8d6826e3" class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df_users <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> user <span class="kw">in</span> df_politicians[<span class="st">'user'</span>].unique():</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> pywikibot.User(site, user) <span class="co"># get user object to manipulate</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> user.groups()</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"bot"</span> <span class="kw">in</span> groups: <span class="co"># to make it easier to see if user is a bot</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>        bot <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>        bot <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame([{</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'username'</span> : user.username,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'is_blocked'</span>: user.is_blocked(),</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">'gender'</span>: user.gender(),</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'is_bot'</span>: bot,</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'first_edit'</span>: user.first_edit[<span class="dv">2</span>],</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'last_edit'</span>: user.last_edit[<span class="dv">2</span>],</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'editCount'</span>: user.editCount()</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> df_users.empty:</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>        df_users <span class="op">=</span> pd.concat([df_users, df])</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>        df_users <span class="op">=</span> df</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span> </span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">#break</span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>df_users.head(<span class="dv">50</span>)</span></code></pre></div>
 <button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
 </div>
 </div>
